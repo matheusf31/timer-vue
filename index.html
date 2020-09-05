@@ -3,8 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Document</title>
   </head>
 
-  <body></body>
+  <body>
+    <div id="app">
+      <span :title="message">
+        Hover your mouse over me for a few seconds to see my dynamically bound
+        title!
+      </span>
+
+      <button v-on:click="changeSeen">Ver</button>
+
+      <a :href="todayLink">Ir para o link do dia</a>
+
+      <span v-if="seen">Now you see me</span>
+
+      <ol>
+        <!-- Create an instance of the todo-item component -->
+        <todo-item></todo-item>
+      </ol>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
 </html>
