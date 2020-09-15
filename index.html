@@ -15,7 +15,6 @@
     <div id="timer">
       <div class="clock-container">
         <h1 v-if="!time">{{ minutes || 'Enter minutes' }}</h1>
-        <!-- format time -->
         <h1 v-else class="big">{{ formattedTime }}</h1>
 
         <div v-show="!time">
