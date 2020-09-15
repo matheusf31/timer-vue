@@ -3,25 +3,81 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   
+
     <!-- development version, includes helpful console warnings -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    
-    <title>VueJS Timer</title>
+
+    <title>Vue-Timer</title>
+    <link rel="stylesheet" href="main.css" />
   </head>
 
   <body>
-    <div id="app">
-      <div>
-        <span>00:00</span>
+    <div id="timer">
+      <div class="clock-container">
+        <h1 v-if="!time">{{ minutes || 'Enter minutes' }}</h1>
+        <!-- format time -->
+        <h1 v-else class="big">{{ formattedTime }}</h1>
+
+        <div v-show="!time">
+          <input
+            type="number"
+            placeholder="Set minutes here"
+            v-model="minutes"
+            v-on:keyup.enter="saveTimer"
+            min="0"
+            max="600"
+          />
+
+          <button
+            class="btn btn-primary"
+            @click="saveTimer"
+            :disabled="!minutes"
+          >
+            Save timer
+          </button>
+
+          <button
+            class="btn btn-cancel"
+            v-on:click="clearTimer"
+            :disabled="!minutes"
+          >
+            Clear
+          </button>
+        </div>
       </div>
 
-      <main>
-        <button>Start</button>
-        <button>Pause</button>
-        <button>Reset</button>
-        <button>Rest</button>
-      </main>
+      <div v-if="time" class="buttons-container">
+        <button
+          class="btn btn-primary"
+          @click="startTimer"
+          :disabled="hasStarted"
+        >
+          Start
+        </button>
+        <button
+          class="btn btn-primary"
+          @click="stopTimer"
+          :disabled="!hasStarted"
+        >
+          Pause
+        </button>
+        <button class="btn btn-cancel" @click="resetTimer">Reset</button>
+      </div>
+      <div v-else class="buttons-container">
+        <button
+          class="btn btn-primary"
+          @click="setTime(minutes)"
+          :disabled="!minutes"
+        >
+          Set time
+        </button>
+      </div>
+
+      <ul v-if="!time">
+        <button @click="setTime(minutes)" v-for="minutes in orderedTimers">
+          <span>{{ minutes }}</span>
+        </button>
+      </ul>
     </div>
 
     <script src="index.js"></script>
