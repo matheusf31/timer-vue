@@ -62,7 +62,7 @@ var vm = new Vue({
   template: `
     <div class="container">
       <div class="clock-container">
-        <h1 v-if="!time">{{ minutes || 'Enter minutes' }}</h1>
+        <h1 v-if="!time">{{ minutes || 'Insert the minutes' }}</h1>
         <h1 v-else class="big">{{ formattedTime }}</h1>
 
         <div v-show="!time">
