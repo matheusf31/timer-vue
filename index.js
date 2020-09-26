@@ -80,7 +80,7 @@ var vm = new Vue({
             @click="setTime(minutes)"
             :disabled="!minutes"
           >
-            Set minutes
+            Start
           </button>
 
           <button
