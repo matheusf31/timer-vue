@@ -29,7 +29,7 @@ let ControlButtons = {
   template: `
     <div v-show="time" class="buttons-container">
       <button
-        class="btn btn-primary"
+        class="btn btn-green"
         @click="$emit('start-timer')"
         :disabled="hasStarted"
       >
@@ -76,8 +76,8 @@ var vm = new Vue({
           />
 
           <button
-            class="btn btn-primary"
-            @click="setTime(minutes)"
+            class="btn btn-green"
+            @click="setTimeAndStart(minutes)"
             :disabled="!minutes"
           >
             Start
@@ -129,6 +129,11 @@ var vm = new Vue({
   methods: {
     setTime(minutes) {
       this.time = minutes * 60;
+    },
+    setTimeAndStart(minutes) {
+      this.setTime(minutes);
+
+      this.startTimer();
     },
     saveTimer: function () {
       this.presetTimers.push(parseInt(this.minutes));

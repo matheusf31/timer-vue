@@ -93,6 +93,11 @@ input {
   color: #fff;
 }
 
+.btn-green {
+  background: #53a364;
+  color: #fff;
+}
+
 .btn-primary:hover {
   background: #3490dc;
 }
