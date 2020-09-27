@@ -1,5 +1,5 @@
 # Timer Vue
 
-Timer construído utilizando VueJS. Para rodar basta fazer um clone e abrir o HTML.
+Timer construído utilizando VueJS. Para rodar localmente basta fazer um clone e abrir o HTML.
 
-Ainda farei uma refatoração do código.
+> https://timer-vue.netlify.app/
