@@ -122,7 +122,7 @@ var vm = new Vue({
       seconds: 0,
       timer: null,
       presetTimers: [10, 15, 40, 25, 55],
-      sound: new Audio("/alarm.mp3"),
+      sound: new Audio("/assets/alarm.mp3"),
     };
   },
 
